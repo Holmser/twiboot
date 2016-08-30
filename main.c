@@ -63,7 +63,8 @@
 #endif
 
 #define EEPROM_SUPPORT		1
-#define LED_SUPPORT		1
+// #define LED_SUPPORT		1
+#define LED_SUPPORT		0
 
 /* 25ms @8MHz */
 #define TIMER_RELOAD		(0xFF - 195)
