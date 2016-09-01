@@ -8,9 +8,10 @@ TARGET = twiboot
 SOURCE = $(wildcard *.c)
 
 # select MCU
-MCU = atmega328pS
+MCU = atmega168
 
-AVRDUDE_PROG := -c avr910 -b 115200 -P /dev/ttyUSB0
+AVRDUDE_PROG := -c usbtiny
+#AVRDUDE_PROG := -c avr910 -b 115200 -P /dev/ttyUSB0
 #AVRDUDE_PROG := -c dragon_isp -P usb
 
 # ---------------------------------------------------------------------------
@@ -33,7 +34,7 @@ endif
 
 ifeq ($(MCU), atmega168)
 # (8Mhz internal RC-Osz., 2.7V BOD)
-AVRDUDE_MCU=m168 -F
+AVRDUDE_MCU=m168p -F
 AVRDUDE_FUSES=lfuse:w:0xc2:m hfuse:w:0xdd:m efuse:w:0xfa:m
 
 BOOTLOADER_START=0x3C00
